@@ -1,0 +1,56 @@
+---
+title: "Binder Template"
+author: "Markus Konkol"
+licenses:
+  code: Apache License 2.0
+  data: CC0
+  text: CC-BY-4.0
+date: "25-3-2022"
+output: html_document
+abstract: "This repository serves as a template to start a reproducible computational analysis written in R, which will later run on mybinder."
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load libraries
+The following libraries are needed to run this file. 
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library("readr")
+library("ggplot2")
+library("weathermetrics")
+```
+
+## Load data
+Load data from the data folder.
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+temperature <- read_delim("data/temperature.csv", 
+    delim = ";", escape_double = FALSE, trim_ws = TRUE)
+```
+
+## Process data 
+Convert from Celsius to Fahrenheit. Function is defined in the file functions.R and stored in the folder "code".
+```{r}
+source("code/functions.R")
+temperature_F <- celsius.to.fahrenheit(temperature$temperature_C)
+```
+
+## Visualise data 
+This code chunk visualises the data in a time series figure.
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+jpeg("figures/figure1.jpg", width = 350, height = 350)
+p <- ggplot(temperature, aes(x=time, y=temperature_C)) +
+  geom_line() + 
+  xlab("")
+dev.off()
+p
+```
+
+## References.
+```{r}
+citation("readr")
+citation("ggplot2")
+citation("weathermetrics")
+```
+

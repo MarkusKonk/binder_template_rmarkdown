@@ -3,5 +3,5 @@ install.packages(c(
   "knitr",
   "readr",
   "rmarkdown",
-  "weathermetrics"), repos = "http://cran.rstudio.com/"
+  "weathermetrics"), repos = "https://cran.uni-muenster.de/"
 )

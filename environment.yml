@@ -1,8 +1,0 @@
-name: binder_template_rmarkdown
-channels:
-  - conda-forge
-dependencies:
-  - r-base=4.1.3
-  - r-ggplot2=3.3.5
-  - r-readr=2.1.2
-  - r-weathermetrics=1.2.2

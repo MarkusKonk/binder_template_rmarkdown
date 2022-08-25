@@ -8,6 +8,7 @@ licenses:
 date: "25-3-2022"
 output: html_document
 abstract: "This repository serves as a template to start a reproducible computational analysis written in R, which will later run on mybinder."
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -21,6 +22,9 @@ library("readr")
 library("ggplot2")
 library("weathermetrics")
 ```
+readr by [@Wickham_readr]
+ggplot2 by [@wickham_ggplot2]
+weathermetrics by [@anderson]
 
 ## Load data
 Load data from the data folder.
@@ -47,10 +51,10 @@ dev.off()
 p
 ```
 
-## References.
+## Getting references objects for references.bib file.
+
 ```{r}
-citation("readr")
 citation("ggplot2")
-citation("weathermetrics")
 ```
 
+## References
